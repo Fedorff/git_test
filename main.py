@@ -130,13 +130,7 @@ def game_start(message):
         game_loop(message)
         return
     else:
-        bot.send_message(message.chat.id, text='Недостаточно людей! Добавляю ботов')
-        for i in range(5 - players):
-            bot_name = f'robot{i}'
-            db.insert_player(i, bot_name)
-            bot.send_message(message.chat.id, text=f'{bot_name} добавлен!')
-            sleep(0.2)
-        game_start(message)
+        bot.send_message(message.chat.id, text='Недостаточно людей!')
 
 if __name__ == '__main__':
     bot.polling(none_stop=True)
